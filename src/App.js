@@ -20,25 +20,27 @@ function App() {
   const [userSelect, setUserSelect] = useState(null);
   const [computerSelect, setComputerSelect] = useState(null);
   const [result, setResult] = useState("");
-  
+
   const play = (userChoice) => {
     setUserSelect(choice[userChoice]);
+
     let computerChoice = randomChoice();
     setComputerSelect(computerChoice);
+
     setResult(judgement(choice[userChoice], computerChoice));
   };
 
   const randomChoice = () => {
     let itemArray = Object.keys(choice); //객체에 키값만 뽑아서 어레이로 만들어주는 함수다
-    console.log("item array", itemArray);
+    // console.log("item array", itemArray);
     let randomItem = Math.floor(Math.random() * itemArray.length);
-    console.log("random value", randomItem);
+    // console.log("random value", randomItem);
     let final = itemArray[randomItem];
     return choice[final];
   };
 
   const judgement = (user, computer) => {
-    console.log("user", user, "computer", computer);
+    // console.log("user", user, "computer", computer);
     if (user.name == computer.name) {
       return "tie";
     } else if (user.name == "Rock")
